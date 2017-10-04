@@ -23,8 +23,8 @@ var Player = function(playerName)
 	}
 
   player.update = function(){
-    posX += 0.1;
-    posY += 0.1;
+    posX += 0.01;
+    posY += 0.01;
   }
 
 	return player;

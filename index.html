@@ -9,7 +9,7 @@ void main()
 {
   vec3 pos = vPosition;
   pos.x += sin(x);
-  //pos.y += y;
+  pos.y += cos(y);
   gl_Position = vec4(pos,1);
 }
 </script>
