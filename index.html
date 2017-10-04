@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
-
+<meta charset="UTF-8">
 <script id="vertex-shader" type="x-shader/x-vertex">
 attribute vec3 vPosition;
-
+uniform float x;
+uniform float y;
 void main()
 {
-    gl_Position = vec4(vPosition,1);
-    
-    gl_Position.x /= 2.0;
-    gl_Position.y /= 2.0;
+  vec3 pos = vPosition;
+  pos.x += sin(x);
+  //pos.y += y;
+  gl_Position = vec4(pos,1);
 }
 </script>
 
@@ -24,8 +25,9 @@ void main()
 <script type="text/javascript" src="Common/webgl-utils.js"></script>
 <script type="text/javascript" src="Common/initShaders.js"></script>
 <script type="text/javascript" src="Common/MV.js"></script>
-<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="rectangle.js"></script>
 <script type="text/javascript" src="player.js"></script>
+<script type="text/javascript" src="index.js"></script>
 
 <body>
 

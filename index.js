@@ -1,3 +1,4 @@
+var p1;
 window.onload = function()
 {
 	var canvas = document.getElementById("gl-canvas");
@@ -13,8 +14,23 @@ window.onload = function()
 
 	var program = initShaders(gl, "vertex-shader","fragment-shader");
 
-	var player = new Player("asd", program);
-	
-	player.init();
-	player.draw();
+	p1 = new Player("p1");
+  p1.init(vec2(-1, 0), 1, 0.5);
+
+  gameLoop();
+}
+var gameEnded = false;
+var gameLoop = function(){
+  gl.clear(gl.COLOR_BUFFER_BIT);
+
+  if(!gameEnded){
+
+    p1.update();
+    p1.draw();
+    window.requestAnimationFrame(gameLoop);
+  }
+  else {
+    window.cancelAnimationFrame(gameLoop);
+  }
+
 }
